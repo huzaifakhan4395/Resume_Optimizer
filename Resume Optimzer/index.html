@@ -3,91 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Optimizer</title>
+  <meta name="description" content="Resume Optimizer - AI-powered resume analysis and improvement suggestions">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Resume Optimizer - Get Instant Resume Feedback</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header>
-  <div class="logo">Resume Optimizer</div>
+<!-- Skip to Main Content Link (Accessibility) -->
+<a href="#main" class="skip-to-main">Skip to main content</a>
 
-  <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('upload')">Upload</button>
-    <button onclick="showSection('results')">Results</button>
-  </nav>
+<!-- HEADER -->
+<header role="banner">
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      📄 Resume Optimizer
+    </a>
 
-  <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span>☰</span>
+    </button>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="upload.html" class="nav-link">Upload</a>
+      <a href="results.html" class="nav-link">Results</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </div>
 </header>
 
-<main>
+<!-- MAIN CONTENT -->
+<main id="main" role="main">
+  <div class="container">
 
-  <!-- HOME -->
-  <section id="home" class="active center">
-    <h1>Optimize Your Resume</h1>
-    <p>Get instant insights on your resume with AI-inspired analysis.</p>
-    <button onclick="showSection('upload')">Get Started</button>
-  </section>
+    <!-- HERO SECTION -->
+    <section class="hero" role="region" aria-label="Hero section">
+      <h1>Optimize Your Resume</h1>
+      <p class="hero-subtitle">Get instant insights on your resume with AI-powered analysis. Improve your chances of landing your dream job.</p>
+      
+      <div class="hero-cta">
+        <a href="upload.html" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="#features" class="btn btn-secondary btn-lg">Learn More</a>
+      </div>
+    </section>
 
-  <!-- UPLOAD + ANALYSIS -->
-  <section id="upload">
-    <h2>Upload Your Resume</h2>
+    <!-- FEATURES SECTION -->
+    <section id="features" class="section mt-8" role="region" aria-labelledby="features-title">
+      <h2 id="features-title">Why Choose Resume Optimizer?</h2>
+      
+      <div class="grid grid-3">
+        <!-- Feature 1 -->
+        <div class="card">
+          <div class="card-body">
+            <h3>🔍 AI-Powered Analysis</h3>
+            <p>Advanced algorithms analyze your resume for keywords, formatting, and content optimization opportunities.</p>
+          </div>
+        </div>
 
-    <input type="file" aria-label="Upload resume">
+        <!-- Feature 2 -->
+        <div class="card">
+          <div class="card-body">
+            <h3>⚡ Instant Feedback</h3>
+            <p>Get real-time analysis results in seconds, not hours. See exactly what needs improvement.</p>
+          </div>
+        </div>
 
-    <button onclick="analyzeResume()">Analyze</button>
+        <!-- Feature 3 -->
+        <div class="card">
+          <div class="card-body">
+            <h3>💡 Actionable Insights</h3>
+            <p>Receive specific, prioritized recommendations to strengthen your resume and stand out to recruiters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div id="loading" class="hidden">
-      <p>Analyzing your resume...</p>
-    </div>
+    <!-- HOW IT WORKS SECTION -->
+    <section class="section mt-8" role="region" aria-labelledby="howitworks-title">
+      <h2 id="howitworks-title">How It Works</h2>
+      
+      <div class="grid grid-3">
+        <!-- Step 1 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="stat-value">1</div>
+          </div>
+          <div class="card-body">
+            <h3>Upload Your Resume</h3>
+            <p>Upload your resume in PDF, Word, or text format. Your data is never stored on our servers.</p>
+          </div>
+        </div>
 
-    <div id="charts" class="hidden">
-      <h3>Analysis Overview</h3>
-      <canvas id="barChart"></canvas>
-      <canvas id="pieChart"></canvas>
-    </div>
-  </section>
+        <!-- Step 2 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="stat-value">2</div>
+          </div>
+          <div class="card-body">
+            <h3>AI Analysis</h3>
+            <p>Our algorithms analyze your resume for content, keywords, structure, and best practices.</p>
+          </div>
+        </div>
 
-  <!-- RESULTS -->
-  <section id="results">
-    <h2>Results</h2>
+        <!-- Step 3 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="stat-value">3</div>
+          </div>
+          <div class="card-body">
+            <h3>Get Recommendations</h3>
+            <p>Receive detailed feedback and actionable improvements to boost your resume score.</p>
+          </div>
+        </div>
+      </div>
 
-    <p>
-      Your resume demonstrates strong foundational skills and clear structure. 
-      However, it could benefit from more quantifiable achievements and improved 
-      keyword optimization to better match job descriptions.
-    </p>
+      <div class="flex flex-center mt-8">
+        <a href="upload.html" class="btn btn-primary btn-lg">Start Analyzing Now</a>
+      </div>
+    </section>
 
-    <h3>Strengths</h3>
-    <ul>
-      <li>Clear formatting and readability</li>
-      <li>Relevant technical skills listed</li>
-      <li>Logical section organization</li>
-    </ul>
+    <!-- BENEFITS SECTION -->
+    <section class="section mt-8" role="region" aria-labelledby="benefits-title">
+      <h2 id="benefits-title">What You'll Get</h2>
+      
+      <ul style="font-size: var(--font-size-lg); line-height: var(--line-height-relaxed);">
+        <li>✓ Overall resume score with detailed breakdown</li>
+        <li>✓ Strengths highlighted to showcase your best qualities</li>
+        <li>✓ Weaknesses identified with specific, actionable solutions</li>
+        <li>✓ Keyword suggestions to match job descriptions</li>
+        <li>✓ Formatting and structure analysis</li>
+        <li>✓ Tips for better ATS (Applicant Tracking System) compatibility</li>
+      </ul>
+    </section>
 
-    <h3>Weaknesses</h3>
-    <ul>
-      <li>Lack of measurable achievements</li>
-      <li>Limited use of industry keywords</li>
-      <li>No strong action verbs in experience section</li>
-    </ul>
-  </section>
+    <!-- CTA SECTION -->
+    <section class="section hero mt-8">
+      <h2>Ready to Improve Your Resume?</h2>
+      <p class="hero-subtitle">Join thousands of job seekers who have optimized their resumes.</p>
+      <div class="hero-cta">
+        <a href="upload.html" class="btn btn-primary btn-lg">Get Started Free</a>
+      </div>
+    </section>
 
+  </div>
 </main>
 
-<footer>
-  <div>
-    <p><strong>Resume Optimizer</strong> — Helping users improve resumes.</p>
-    <p>Accessible design | Privacy-first | No data stored</p>
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Resume Optimizer</h3>
+      <p>Helping job seekers create better resumes with AI-powered analysis and actionable feedback.</p>
+      <p><strong>Privacy First:</strong> Your resume data is analyzed locally and never stored on our servers.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="upload.html">Upload Resume</a></li>
+        <li><a href="results.html">View Results</a></li>
+        <li><a href="mailto:support@resumeoptimizer.com">Contact Support</a></li>
+      </ul>
+    </div>
   </div>
 
-  <div>
-    <p>© 2026 Resume Optimizer</p>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Resume Optimizer. Built with accessibility and ethics in mind. <a href="#accessibility" style="color: inherit;">Accessibility Statement</a></p>
   </div>
 </footer>
 
+<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/script.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/form-handler.js"></script>
+<script src="js/scripts.js"></script>
 
 </body>
 </html>
