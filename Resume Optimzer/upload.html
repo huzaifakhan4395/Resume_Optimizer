@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Upload your resume for AI-powered analysis and instant feedback">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Upload Resume - Resume Optimizer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Skip to Main Content Link (Accessibility) -->
+<a href="#main" class="skip-to-main">Skip to main content</a>
+
+<!-- HEADER -->
+<header role="banner">
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      📄 Resume Optimizer
+    </a>
+
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span>☰</span>
+    </button>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="upload.html" class="nav-link active">Upload</a>
+      <a href="results.html" class="nav-link">Results</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main id="main" role="main">
+  <div class="container">
+
+    <!-- PAGE TITLE -->
+    <section class="section mb-8">
+      <h1>Upload Your Resume</h1>
+      <p>Upload your resume in PDF, Word (.docx), or text format. Our AI will analyze it in seconds.</p>
+    </section>
+
+    <!-- UPLOAD FORM SECTION -->
+    <section class="section grid grid-2" role="region" aria-labelledby="upload-form-title">
+      
+      <!-- LEFT: Upload Form -->
+      <div>
+        <h2 id="upload-form-title">Choose Your Resume</h2>
+        
+        <div class="form-group">
+          <label for="resumeFile" class="form-label">
+            Resume File
+            <span class="required" aria-label="required">*</span>
+          </label>
+
+          <div class="form-file">
+            <input 
+              type="file" 
+              id="resumeFile" 
+              class="form-input" 
+              accept=".pdf,.doc,.docx,.txt"
+              aria-label="Select your resume file"
+              aria-describedby="file-help"
+            />
+            <label for="resumeFile" class="form-file-label" role="button" tabindex="0" aria-label="Click or drag to upload resume">
+              <div>
+                <p style="font-size: var(--font-size-lg); margin: 0;">📁 Upload Resume</p>
+                <p style="margin: var(--space-2) 0; color: var(--color-text-secondary);">PDF, Word (.docx), or Text (.txt)</p>
+                <p style="margin: 0; color: var(--color-text-tertiary); font-size: var(--font-size-sm);">Max file size: 10 MB</p>
+              </div>
+            </label>
+          </div>
+
+          <small id="file-help" class="form-help">
+            Drag and drop or click to upload. Your data is processed locally and never stored on our servers.
+          </small>
+        </div>
+
+        <!-- Analyze Button -->
+        <button onclick="analyzeResume()" class="btn btn-primary btn-lg btn-block" data-action="analyze" disabled>
+          Analyze Resume
+        </button>
+      </div>
+
+      <!-- RIGHT: Information Panel -->
+      <div>
+        <h2>What We Analyze</h2>
+        
+        <div class="card">
+          <div class="card-body">
+            <h3>✓ Your Resume Will Be Reviewed For:</h3>
+            <ul>
+              <li><strong>Keyword Optimization:</strong> Match with common job descriptions</li>
+              <li><strong>Formatting & Structure:</strong> Professional appearance and ATS compatibility</li>
+              <li><strong>Content Quality:</strong> Clear accomplishments and quantifiable achievements</li>
+              <li><strong>Section Organization:</strong> Logical flow and industry best practices</li>
+              <li><strong>Grammar & Clarity:</strong> Professional language and readability</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert alert-info mt-4">
+          <p><strong>💡 Tip:</strong> Upload your resume in PDF format for best results. Make sure it includes your experience, education, and key skills.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- LOADING STATE -->
+    <section id="loading" class="section hidden" role="region" aria-live="polite" aria-busy="true" aria-label="Processing">
+      <div class="loading-container">
+        <div class="loader loader-lg"></div>
+        <p style="margin-top: var(--space-6); font-size: var(--font-size-lg);">Analyzing your resume...</p>
+        <p style="margin-top: var(--space-2); color: var(--color-text-tertiary);">This usually takes 2-3 seconds. Please wait.</p>
+      </div>
+    </section>
+
+    <!-- CHARTS SECTION -->
+    <section id="charts" class="section hidden" role="region" aria-label="Analysis results">
+      <h2>📊 Analysis Overview</h2>
+      
+      <div class="grid grid-2 mt-6">
+        <div>
+          <h3>Score Breakdown</h3>
+          <canvas id="barChart" role="img" aria-label="Resume score by section"></canvas>
+        </div>
+        <div>
+          <h3>Keyword Match</h3>
+          <canvas id="pieChart" role="img" aria-label="Keyword match analysis"></canvas>
+        </div>
+      </div>
+
+      <div class="flex flex-center mt-8">
+        <a href="results.html" class="btn btn-primary btn-lg">View Detailed Results</a>
+        <button onclick="FormHandler.clearFileSession(); location.reload();" class="btn btn-secondary btn-lg" style="margin-left: var(--space-4);">
+          Analyze Another Resume
+        </button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Resume Optimizer</h3>
+      <p>Helping job seekers create better resumes with AI-powered analysis and actionable feedback.</p>
+      <p><strong>Privacy First:</strong> Your resume data is analyzed locally and never stored on our servers.</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="upload.html">Upload Resume</a></li>
+        <li><a href="results.html">View Results</a></li>
+        <li><a href="mailto:support@resumeoptimizer.com">Contact Support</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Resume Optimizer. Built with accessibility and ethics in mind. <a href="#accessibility" style="color: inherit;">Accessibility Statement</a></p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/accessibility.js"></script>
+<script src="js/form-handler.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
