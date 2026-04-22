@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Optimizer</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Resume Optimizer</div>
+
+  <nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('upload')">Upload</button>
+    <button onclick="showSection('results')">Results</button>
+  </nav>
+
+  <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+</header>
+
+<main>
+
+  <!-- HOME -->
+  <section id="home" class="active center">
+    <h1>Optimize Your Resume</h1>
+    <p>Get instant insights on your resume with AI-inspired analysis.</p>
+    <button onclick="showSection('upload')">Get Started</button>
+  </section>
+
+  <!-- UPLOAD + ANALYSIS -->
+  <section id="upload">
+    <h2>Upload Your Resume</h2>
+
+    <input type="file" aria-label="Upload resume">
+
+    <button onclick="analyzeResume()">Analyze</button>
+
+    <div id="loading" class="hidden">
+      <p>Analyzing your resume...</p>
+    </div>
+
+    <div id="charts" class="hidden">
+      <h3>Analysis Overview</h3>
+      <canvas id="barChart"></canvas>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <h2>Results</h2>
+
+    <p>
+      Your resume demonstrates strong foundational skills and clear structure. 
+      However, it could benefit from more quantifiable achievements and improved 
+      keyword optimization to better match job descriptions.
+    </p>
+
+    <h3>Strengths</h3>
+    <ul>
+      <li>Clear formatting and readability</li>
+      <li>Relevant technical skills listed</li>
+      <li>Logical section organization</li>
+    </ul>
+
+    <h3>Weaknesses</h3>
+    <ul>
+      <li>Lack of measurable achievements</li>
+      <li>Limited use of industry keywords</li>
+      <li>No strong action verbs in experience section</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <p><strong>Resume Optimizer</strong> — Helping users improve resumes.</p>
+    <p>Accessible design | Privacy-first | No data stored</p>
+  </div>
+
+  <div>
+    <p>© 2026 Resume Optimizer</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
