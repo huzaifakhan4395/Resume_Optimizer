@@ -43,14 +43,6 @@ main {
   }
 }
 
-.section.active {
-  display: block;
-}
-
-.section:not(.active) {
-  display: none;
-}
-
 /* Grid Layouts */
 .grid {
   display: grid;
